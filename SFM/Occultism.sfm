@@ -4,11 +4,13 @@ NAME "Occultism"
 EVERY 20 TICKS DO
     --Craft book of binding since it has random NBT data
     input "occultism:book_of_binding_foliot" from "In"
+    input "occultism:book_of_binding_djinni" from "In"
     input "occultism:dictionary_of_spirits" from "In"
-    OUTPUT 2 TO "Crafter"
+    OUTPUT TO "Crafter"
 
     forget
     input "occultism:book_of_binding_bound_foliot" from "Crafter"
+    input "occultism:book_of_binding_bound_djinni" from "Crafter"
     OUTPUT 1 TO "Altar"
 
     forget
