@@ -1,0 +1,70 @@
+NAME "Mystical"
+
+--Ars Imb
+EVERY 20 TICKS DO
+    input from "Ars Imb Provider" slots 1-8
+    OUTPUT 1 TO each "Ars Imb Pedistal"
+
+    forget
+    input from "Ars Imb Provider" slots 0
+    OUTPUT 1 TO "Ars Imb Altar"
+
+    
+    forget 
+    input from "Ars Imb Altar"
+    if  "Ars Imb Altar" has gt 1 ars_nouveau:manipulation_essence then
+        input from "Ars Imb Pedistal"
+        output to "Ars Imb Result"
+    END
+END
+
+--Ars Enchent
+EVERY 20 TICKS DO
+    input from "Ars Provider" slots 1-8
+    OUTPUT 1 TO each "Ars Pedistal"
+
+    forget
+    input from "Ars Provider" slots 0
+    OUTPUT 1 TO "Ars Altar"
+
+    
+    forget 
+    input from "Ars Pedistal"
+    IF "Ars Pedistal" HAS LT 1 THEN
+        forget
+        input from "Ars Altar"
+        output to "Ars Result"
+    END
+END
+
+--Mystical Altar
+EVERY 20 TICKS DO
+    input from "Myst Provider Chest" slots 0
+    if "Myst Provider Chest" has ge 1 then
+        OUTPUT to "Myst Altar"
+
+        forget
+        input from "Myst Provider Chest" slots 1-8
+        OUTPUT 1 TO each "Myst Pedistal"
+        forget
+    END
+
+    input from "Myst Altar"
+    IF "Myst Altar" HAS GT 0 THEN
+        input from "Myst Temp Chest"
+        output to "Myst Button"
+    end
+    
+    IF "Myst Altar" HAS LT 1 THEN
+    input from "Myst Button"
+    output to "Myst Temp Chest"
+    END
+
+    forget
+    input from "Myst Pedistal"
+    IF "Myst Pedistal" HAS LT 1 THEN
+        forget
+        input from "Myst Altar"
+        output to "Myst Result"
+    END
+END
