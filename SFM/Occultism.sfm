@@ -8,13 +8,4 @@ EVERY 20 TICKS DO
     forget
     input from "In" slots 0
     OUTPUT 1 TO "Altar"
-
-    
-    forget 
-    input from "Pedistal"
-    IF "Pedistal" HAS LT 1 THEN
-        forget
-        input from "Altar"
-        output to "Out"
-    END
 END
