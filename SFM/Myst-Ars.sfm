@@ -69,10 +69,45 @@ EVERY 20 TICKS DO
     END
 END
 
+--Awake trigger
+EVERY 20 TICKS DO
+    input from "Awake Altar"
+    IF "Awake Altar" HAS GT 0 THEN
+        input from "Myst Temp Chest"
+        output to "Awake Button"
+    end
+    
+    IF "Awake Altar" HAS LT 1 THEN
+    input from "Awake Button"
+    output to "Myst Temp Chest"
+    END
+
+    forget
+    input from"Awake Altar"
+    input from "Awake Pedistal"
+    input from "Awake Vessel"
+    IF "Awake Altar" HAS GE 1  
+        and "Awake Pedistal" HAS LT 1 
+        and "Awake Vessel" HAS LT 1 THEN
+        
+        forget
+        input from "Awake Altar"
+        output to "Awake Result"
+
+        forget
+        input from "Awake Provider" slots 0
+        output to "Awake Result"
+    END
+END
+
 --Awake Altar
 EVERY 20 TICKS DO
+
     input from "Awake Provider" slots 0
-    if "Awake Provider" has ge 1 then
+    if 
+        not "Awake Provider" has ge 1 diamond
+        and "Awake Provider" has ge 1 
+    then
         OUTPUT to "Awake Altar"
 
         forget
@@ -93,23 +128,31 @@ EVERY 20 TICKS DO
         OUTPUT TO "Awake Vessel"
         forget
     END
+END
 
-    input from "Awake Altar"
-    IF "Awake Altar" HAS GT 0 THEN
-        input from "Myst Temp Chest"
-        output to "Awake Button"
-    end
-    
-    IF "Awake Altar" HAS LT 1 THEN
-    input from "Awake Button"
-    output to "Myst Temp Chest"
-    END
+--Awake Altar Bee
+EVERY 20 TICKS DO
 
-    forget
-    input from "Awake Pedistal"
-    IF "Awake Pedistal" HAS LT 1 THEN
+    input from "Awake Provider" slots 0
+    if 
+        "Awake Provider" has ge 1 diamond
+    then
         forget
-        input from "Awake Altar"
-        output to "Awake Result"
+        input mysticalagriculture:awakened_supremium_block from "Awake Provider"
+        OUTPUT 1 TO each "Awake Pedistal"
+        forget
+
+        input 20 mysticalagriculture:earth_essence from "Awake Provider"
+        OUTPUT TO "Awake Vessel"
+        forget
+        input 20 mysticalagriculture:air_essence from "Awake Provider"
+        OUTPUT TO "Awake Vessel"
+        forget
+        input 20 mysticalagriculture:fire_essence from "Awake Provider"
+        OUTPUT TO "Awake Vessel"
+        forget
+        input  20 mysticalagriculture:water_essence from "Awake Provider"
+        OUTPUT TO "Awake Vessel"
+        forget
     END
 END
