@@ -73,13 +73,17 @@ END
 EVERY 20 TICKS DO
     input from "Awake Altar"
     IF "Awake Altar" HAS GT 0 THEN
+        forget
         input from "Myst Temp Chest"
         output to "Awake Button"
     end
     
+    forget
+    input from "Awake Altar"
     IF "Awake Altar" HAS LT 1 THEN
-    input from "Awake Button"
-    output to "Myst Temp Chest"
+        forget
+        input from "Awake Button"
+        output to "Myst Temp Chest"
     END
 
     forget
