@@ -68,3 +68,48 @@ EVERY 20 TICKS DO
         output to "Myst Result"
     END
 END
+
+--Awake Altar
+EVERY 20 TICKS DO
+    input from "Awake Provider" slots 0
+    if "Awake Provider" has ge 1 then
+        OUTPUT to "Awake Altar"
+
+        forget
+        input mysticalagriculture:awakened_supremium_ingot,mysticalagriculture:awakened_supremium_gemstone,mysticalagriculture:cognizant_dust from "Awake Provider" slots 1-8
+        OUTPUT 1 TO each "Awake Pedistal"
+        forget
+
+        input mysticalagriculture:earth_essence from "Awake Provider"
+        OUTPUT TO "Awake Vessel"
+        forget
+        input mysticalagriculture:air_essence from "Awake Provider"
+        OUTPUT TO "Awake Vessel"
+        forget
+        input mysticalagriculture:fire_essence from "Awake Provider"
+        OUTPUT TO "Awake Vessel"
+        forget
+        input mysticalagriculture:water_essence from "Awake Provider"
+        OUTPUT TO "Awake Vessel"
+        forget
+    END
+
+    input from "Awake Altar"
+    IF "Awake Altar" HAS GT 0 THEN
+        input from "Myst Temp Chest"
+        output to "Awake Button"
+    end
+    
+    IF "Awake Altar" HAS LT 1 THEN
+    input from "Awake Button"
+    output to "Myst Temp Chest"
+    END
+
+    forget
+    input from "Awake Pedistal"
+    IF "Awake Pedistal" HAS LT 1 THEN
+        forget
+        input from "Awake Altar"
+        output to "Awake Result"
+    END
+END
