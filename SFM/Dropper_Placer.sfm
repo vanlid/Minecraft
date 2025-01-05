@@ -1,0 +1,16 @@
+NAME "Dropper/Placer"
+
+--Just Dire
+EVERY 20 TICKS DO
+    input iron_block,diamond_block,gold_block,netherite_block from "In"
+    OUTPUT 1 TO each "Placer"
+END
+--Occultism
+EVERY 20 TICKS DO
+    input andesite,occultism:otherworld_log from "In"
+    OUTPUT TO "Dropper"
+END
+EVERY 20 TICKS DO
+    input "occultism:chalk_*_impure" from "In"
+    OUTPUT TO "Dropper"
+END
