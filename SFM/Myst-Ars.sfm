@@ -78,8 +78,6 @@ EVERY 20 TICKS DO
         output to "Awake Button"
     end
     
-    forget
-    input from "Awake Altar"
     IF "Awake Altar" HAS LT 1 THEN
         forget
         input from "Awake Button"
@@ -159,4 +157,5 @@ EVERY 20 TICKS DO
         OUTPUT TO "Awake Vessel"
         forget
     END
+    forget
 END
