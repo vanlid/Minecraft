@@ -12,7 +12,31 @@ EVERY 20 TICKS DO
     
     forget 
     input from "Ars Imb Altar"
-    if  "Ars Imb Altar" has gt 1 ars_nouveau:manipulation_essence then
+    if  "Ars Imb Altar" has ge 1 ars_nouveau:abjuration_essence then
+        input from "Ars Imb Pedistal"
+        output to "Ars Imb Result"
+    END
+    if  "Ars Imb Altar" has ge 1 ars_nouveau:conjuration_essence then
+        input from "Ars Imb Pedistal"
+        output to "Ars Imb Result"
+    END
+    if  "Ars Imb Altar" has ge 1 ars_nouveau:air_essence then
+        input from "Ars Imb Pedistal"
+        output to "Ars Imb Result"
+    END
+    if  "Ars Imb Altar" has ge 1 ars_nouveau:earth_essence then
+        input from "Ars Imb Pedistal"
+        output to "Ars Imb Result"
+    END
+    if  "Ars Imb Altar" has ge 1 ars_nouveau:fire_essence then
+        input from "Ars Imb Pedistal"
+        output to "Ars Imb Result"
+    END
+    if  "Ars Imb Altar" has ge 1 ars_nouveau:manipulation_essence then
+        input from "Ars Imb Pedistal"
+        output to "Ars Imb Result"
+    END
+    if  "Ars Imb Altar" has ge 1 ars_nouveau:water_essence then
         input from "Ars Imb Pedistal"
         output to "Ars Imb Result"
     END
